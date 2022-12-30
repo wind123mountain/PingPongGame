@@ -42,7 +42,12 @@
         "src/modules/pingpong/ScreenPingpong.js",
         "src/modules/pingpong/Bar.js",
         "src/modules/pingpong/Ball.js",
+        "src/modules/pingpong/Item.js",
         "src/modules/pingpong/Brick.js",
-        "src/modules/pingpong/GameOver.js"
+        "src/modules/pingpong/GameOver.js",
+        "src/modules/pingpong/Wall.js",
+        "src/modules/pingpong/Data.js",
+        "src/modules/pingpong/Ranking.js",
+        "src/modules/pingpong/EnterName.js"
     ]
 }

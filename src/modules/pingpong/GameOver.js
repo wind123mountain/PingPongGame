@@ -1,6 +1,5 @@
 
 var GameOver = cc.Layer.extend({
-    _ship:null,
     _lbScore:0,
     _score:0,
 
@@ -23,9 +22,9 @@ var GameOver = cc.Layer.extend({
         this.addChild(btnPlayAgain);
         btnPlayAgain.addClickEventListener(this.onPlayAgain.bind(this));
 
-        var btnSaveScore = gv.commonButton(200*SCALE, 50*SCALE, 320*SCALE, 380*SCALE,"Save Score");
+        var btnSaveScore = gv.commonButton(200*SCALE, 50*SCALE, 320*SCALE, 380*SCALE,"Menu");
         this.addChild(btnSaveScore);
-        btnSaveScore.addClickEventListener(this.onSaveScore.bind(this));
+        btnSaveScore.addClickEventListener(this.onMenu.bind(this));
 
         var lbScore = new cc.LabelTTF("Your Score : "+this._score, "Arial Bold", 25*SCALE);
         lbScore.x = 320*SCALE;
@@ -41,8 +40,8 @@ var GameOver = cc.Layer.extend({
         fr.view(ScreenPingpong);
     },
 
-    onSaveScore:function (){
-
+    onMenu:function (){
+        fr.view(ScreenMenu);
     },
 
     setScore:function (score){

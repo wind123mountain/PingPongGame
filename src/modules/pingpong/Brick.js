@@ -8,9 +8,16 @@ var Brick = cc.Sprite.extend({
     maxPos: cc.p(0, 0),
     speed:0,
     isActive: true,
+    state:{
+        1:"res/brick2.png",
+        2:"res/brick1.png",
+        3:"res/brick0.png"
+    },
+    live:3,
 
     ctor:function (){
-        this._super("res/brick.png");
+        this._super(this.state[1]);
+        this.live = 1;
         this.tag = this.zOrder;
         this.scale = SCALE;
         this.passX = this.getBoundingBox().width/2;
@@ -19,16 +26,20 @@ var Brick = cc.Sprite.extend({
     },
 
     destroy:function () {
-        this.isActive = false;
+        this.live--;
+        if(this.live == 0) {
+            this.isActive = false;
 
-        var fade = cc.FadeOut.create(0.3);
-        var scale1 = cc.ScaleTo.create(0.3, 0.5);
-        var spawn = cc.Spawn.create(scale1, fade);
-        var scale2 = cc.ScaleTo.create(0.1, 1.0);
-        var  sep = cc.Sequence.create(spawn, scale2);
-        this.runAction(sep);
-        // setTimeout(this.removeFromParent(), 750);
-
+            var fade = cc.FadeOut.create(0.2);
+            var scale1 = cc.ScaleTo.create(0.2, 0.5);
+            var spawn = cc.Spawn.create(scale1, fade);
+            var scale2 = cc.ScaleTo.create(0.0000001, 1.0);
+            var sep = cc.Sequence.create(spawn, scale2);
+            this.runAction(sep);
+        }
+        else {
+            this.setTexture(this.state[this.live]);
+        }
     },
 
     setMinPos:function (thresholdX, thresholdY){
@@ -44,15 +55,17 @@ var Brick = cc.Sprite.extend({
     inActive:function (){
         this.isActive = false;
 
-        var fade = cc.FadeOut.create(0.0);
+        var fade = cc.FadeOut.create(0.000001);
         this.runAction(fade);
 
     },
 
-    Active:function (){
+    Active:function (live){
         this.isActive = true;
+        this.live = live;
+        this.setTexture(this.state[this.live]);
+        var fade = cc.FadeIn.create(0.000001);
 
-        var fade = cc.FadeIn.create(0.0);
         this.runAction(fade);
     }
 

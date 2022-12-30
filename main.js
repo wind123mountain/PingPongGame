@@ -18,7 +18,7 @@ cc.game.onStart = function () {
     // cc.view.setFrameSize(640, 960);
     cc.LoaderScene.preload(g_resources, function () {
         //hide fps
-        cc.director.setDisplayStats(true);
+        // cc.director.setDisplayStats(true);
         // Setup the resolution policy and design resolution size
         var frameSize = cc.view.getFrameSize();
 
@@ -32,7 +32,15 @@ cc.game.onStart = function () {
         // The game will be resized when browser size change
         cc.view.resizeWithBrowserSize(true);
 
-        fr.view(ScreenMenu);
+        // saveRanking(RANK);
+
+        if(getUsername() == null){
+            fr.view(EnterName);
+        }
+        else {
+            fr.view(ScreenMenu);
+        }
+
     }, this);
 };
 cc.game.run();

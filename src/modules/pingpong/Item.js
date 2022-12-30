@@ -1,5 +1,5 @@
 
-var Ball = cc.Sprite.extend({
+var ItemXBall = cc.Sprite.extend({
     zOrder:300,
     passX:0,
     passY:0,
@@ -10,40 +10,13 @@ var Ball = cc.Sprite.extend({
     isActive: true,
 
     ctor:function (){
-        this._super("res/ball.png");
+        this._super("res/x3Item.png");
         this.tag = this.zOrder;
         this.scale = SCALE;
         this.passX = this.getBoundingBox().width/2;
         this.passY = this.getBoundingBox().height/2;
-        this.direction = cc.p(0, 0);
+        this.direction = cc.p(0.0001, -5);
         this.isActive = true;
-
-        this.generateDirection();
-    },
-
-    generateDirection:function(){
-        //sinh goc gau nhieu trong khoang 45 den 135 do
-        let angle = (Math.random() * (135 - 45) + 45) * Math.PI / 180;
-        // console.log("angle "+angle);
-        // let angle = 1.2099794042059493;
-        // let angle = 2.2633246370222513;
-        // let angle = Math.PI / 4;
-        this.direction.x = Math.cos(angle);
-        this.direction.y = Math.sin(angle);
-    },
-
-    addMomemtum:function (momemtum){
-        let x = this.direction.x + momemtum;
-        if(Math.abs(x/this.direction.y) > 5.0){
-            //chuan hoa |y| = |x|/3
-            let direcY = Math.abs(this.direction.x/3);
-            if(this.direction.y < 0){
-                this.direction.y = -direcY;
-            }
-        }
-        let len = Math.sqrt(x*x + this.direction.y*this.direction.y);
-        this.direction.x = x/len;
-        this.direction.y = this.direction.y/len;
     },
 
     destroy:function () {
@@ -55,7 +28,7 @@ var Ball = cc.Sprite.extend({
 
     Active:function (){
         this.isActive = true;
-        this.direction.y = Math.abs(this.direction.y);
+        this.direction.y = -Math.abs(this.direction.y)
 
         var fade = cc.FadeIn.create(0.000001);
         this.runAction(fade);
