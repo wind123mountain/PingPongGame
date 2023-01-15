@@ -3,6 +3,13 @@ var Ranking = cc.Layer.extend({
 
     ctor:function(){
         this._super();
+
+        var sp = new cc.Sprite("res/loading.png");
+        sp.anchorX = 0;
+        sp.anchorY = 0;
+        sp.scale = 2;
+        this.addChild(sp, 0, 1);
+
         this.init();
     },
 

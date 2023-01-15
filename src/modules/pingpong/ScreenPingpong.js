@@ -49,6 +49,12 @@ var ScreenPingpong = cc.Layer.extend({
         this.onCountdown();
     },
     init:function (){
+        var sp = new cc.Sprite("res/loading.png");
+        sp.anchorX = 0;
+        sp.anchorY = 0;
+        sp.scale = 2;
+        this.addChild(sp, 0, 1);
+
         winSize = cc.director.getVisibleSize();
         this._bricks = [];//???
         this._ballList = [];

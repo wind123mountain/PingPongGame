@@ -38,6 +38,7 @@
         "src/base/network/InPacketFactory.js",
         "src/base/Resource.js",
         "src/base/UIFactory.js",
+        "src/modules/config/GameConfig.js",
         "src/modules/mainmenu/ScreenMenu.js",
         "src/modules/pingpong/ScreenPingpong.js",
         "src/modules/pingpong/Bar.js",
@@ -48,6 +49,7 @@
         "src/modules/pingpong/Wall.js",
         "src/modules/pingpong/Data.js",
         "src/modules/pingpong/Ranking.js",
-        "src/modules/pingpong/EnterName.js"
+        "src/modules/pingpong/EnterName.js",
+        "src/modules/pingpong/SettingsLayer.js"
     ]
 }

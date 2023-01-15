@@ -10,6 +10,12 @@ var GameOver = cc.Layer.extend({
     },
 
     init:function () {
+        var sp = new cc.Sprite("res/loading.png");
+        sp.anchorX = 0;
+        sp.anchorY = 0;
+        sp.scale = 2;
+        this.addChild(sp, 0, 1);
+
         var logo = new cc.Sprite("res/gameOver.png");
         logo.attr({
             x: 320*SCALE,

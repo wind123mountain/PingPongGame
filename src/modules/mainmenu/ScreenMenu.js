@@ -9,6 +9,13 @@ var ScreenMenu = cc.Layer.extend({
 
     ctor:function() {
         this._super();
+
+        var sp = new cc.Sprite("res/loading.png");
+        sp.anchorX = 0;
+        sp.anchorY = 0;
+        sp.scale = 2;
+        this.addChild(sp, 0, 1);
+
         var size = cc.director.getVisibleSize();
 
         var yBtn = 3*size.height/5;
@@ -31,6 +38,13 @@ var ScreenMenu = cc.Layer.extend({
         this.addChild(btnRanking);
         btnRanking.addClickEventListener(this.onSelectRanking.bind(this));
 
+        var btnRanking =  gv.commonButton(200*SCALE, 64*SCALE, cc.winSize.width/2, yBtn - 240,"Option");
+        this.addChild(btnRanking);
+        btnRanking.addClickEventListener(this.onSelectOption.bind(this));
+
+        if(MW.SOUND){
+            cc.audioEngine.playMusic("res/Vexento_LonelyDance.mp3");
+        }
 
     },
     onEnter:function(){
@@ -47,6 +61,10 @@ var ScreenMenu = cc.Layer.extend({
 
     onSelectRanking:function (sender){
         fr.view(Ranking);
+    },
+
+    onSelectOption:function (sender){
+        fr.view(SettingsLayer);
     }
 
 });
