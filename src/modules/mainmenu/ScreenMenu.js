@@ -43,7 +43,7 @@ var ScreenMenu = cc.Layer.extend({
         btnRanking.addClickEventListener(this.onSelectOption.bind(this));
 
         if(MW.SOUND){
-            cc.audioEngine.playMusic("res/Vexento_LonelyDance.mp3");
+            cc.audioEngine.playMusic("res/Vexento_LonelyDance.mp3", true);
         }
 
     },

@@ -37,7 +37,7 @@ var ScreenPingpong = cc.Layer.extend({
     _bottomWall:null,
     _listener:null,
     _user:null,
-    _thresholdScore:20,
+    _thresholdScore:30,
     _overGame:false,
     _ballList:[],
     _numBall: 1,
@@ -391,18 +391,22 @@ var ScreenPingpong = cc.Layer.extend({
                 if (this._bricks[i][j].isActive) {
                     hasBrick = true;
                     if (this.onHitObject(this._preBallPos, this._currBallPos, this._bricks[i][j])) {
+                        if(MW.SOUND){
+                            cc.audioEngine.playEffect("res/explodeEffect.mp3");
+                        }
+
                         this._bricks[i][j].destroy();
-                        this._score++;
+                        this._score += MW.SCORE;
                         this._lbScore.setString(this._user.name + " " + "Score: " + this._score);
 
-                        if(!this._itemXBall.isActive && Math.random() < this._rateItem){
+                        if(!this._itemXBall.isActive && Math.random() < MW.DROP_ITEM_RATE){
                             this._itemXBall.setPosition(this._currBallPos);
                             this._itemXBall.Active();
                         }
 
                         if(this._score%this._thresholdScore == 0 && this._score > 0){
                             this._speed += this._deltaUpdateBallSpeed;
-                            this._updateTime *= this._deltaUpdateMap;
+                            this._updateTime *= MW.DELTA_UPDATE_MAP;
                         }
                     }
                 }
