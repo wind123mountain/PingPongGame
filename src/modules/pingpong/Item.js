@@ -10,6 +10,9 @@ var ItemXBall = cc.Sprite.extend({
     isActive: true,
 
     ctor:function (){
+        if (MW.SOUND) {
+            cc.audioEngine.playEffect("res/start_game.wav", false);
+        }
         this._super("res/x3Item.png");
         this.tag = this.zOrder;
         this.scale = SCALE;

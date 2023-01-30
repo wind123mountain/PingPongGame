@@ -1,15 +1,17 @@
-
 var GameOver = cc.Layer.extend({
-    _lbScore:0,
-    _score:0,
+    _lbScore: 0,
+    _score: 0,
 
-    ctor:function(){
+    ctor: function () {
         this._super();
         this._score = Score;
         this.init();
     },
 
-    init:function () {
+    init: function () {
+        if (MW.SOUND) {
+            cc.audioEngine.playEffect("res/game_over.mp3");
+        }
         var sp = new cc.Sprite("res/loading.png");
         sp.anchorX = 0;
         sp.anchorY = 0;
@@ -18,40 +20,46 @@ var GameOver = cc.Layer.extend({
 
         var logo = new cc.Sprite("res/gameOver.png");
         logo.attr({
-            x: 320*SCALE,
-            y: 700*SCALE,
+            x: 320 * SCALE,
+            y: 700 * SCALE,
             scale: SCALE
         });
-        this.addChild(logo,10,1);
+        this.addChild(logo, 10, 1);
 
-        var btnPlayAgain = gv.commonButton(200*SCALE, 50*SCALE, 320*SCALE, 450*SCALE,"Play Again");
+        var btnPlayAgain = gv.commonButton(200 * SCALE, 50 * SCALE, 320 * SCALE, 450 * SCALE, "Play Again");
         this.addChild(btnPlayAgain);
         btnPlayAgain.addClickEventListener(this.onPlayAgain.bind(this));
 
-        var btnSaveScore = gv.commonButton(200*SCALE, 50*SCALE, 320*SCALE, 380*SCALE,"Menu");
+        var btnSaveScore = gv.commonButton(200 * SCALE, 50 * SCALE, 320 * SCALE, 380 * SCALE, "Menu");
         this.addChild(btnSaveScore);
         btnSaveScore.addClickEventListener(this.onMenu.bind(this));
 
-        var lbScore = new cc.LabelTTF("Your Score : "+this._score, "Arial Bold", 25*SCALE);
-        lbScore.x = 320*SCALE;
-        lbScore.y = 550*SCALE;
-        lbScore.color = cc.color(255,0,0);
-        this.addChild(lbScore,10);
+        var lbScore = new cc.LabelTTF("Your Score : " + this._score, "Arial Bold", 25 * SCALE);
+        lbScore.x = 320 * SCALE;
+        lbScore.y = 550 * SCALE;
+        lbScore.color = cc.color(255, 0, 0);
+        this.addChild(lbScore, 10);
+
+
+        setTimeout(() => {
+            if (MW.SOUND) {
+                cc.audioEngine.playEffect("res/Vexento_LonelyDance.mp3");
+            }
+        }, 4000)
 
         return true;
     },
 
-    onPlayAgain:function () {
+    onPlayAgain: function () {
         console.log("rePlay");
         fr.view(ScreenPingpong);
     },
 
-    onMenu:function (){
+    onMenu: function () {
         fr.view(ScreenMenu);
     },
 
-    setScore:function (score){
+    setScore: function (score) {
         this._score = score;
     }
 });
-

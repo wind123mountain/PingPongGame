@@ -26,6 +26,10 @@ var Brick = cc.Sprite.extend({
     },
 
     destroy:function () {
+        // Âm thanh bóng phá gạch
+        if (MW.SOUND) {
+            cc.audioEngine.playEffect("res/ball_brick.mp3");
+        }
         this.live--;
         if(this.live == 0) {
             this.isActive = false;

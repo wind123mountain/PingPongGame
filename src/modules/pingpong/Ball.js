@@ -22,6 +22,10 @@ var Ball = cc.Sprite.extend({
     },
 
     generateDirection:function(){
+        // âm thanh hứng trúng bóng vàng bonus x3
+        if (MW.SOUND) {
+            cc.audioEngine.playEffect("res/bonus.wav", false);
+        }
         //sinh goc gau nhieu trong khoang 45 den 135 do
         let angle = (Math.random() * (135 - 45) + 45) * Math.PI / 180;
         // console.log("angle "+angle);
@@ -33,6 +37,10 @@ var Ball = cc.Sprite.extend({
     },
 
     addMomemtum:function (momemtum){
+        // âm thanh thanh ngang hứng trúng bóng
+        if (MW.SOUND) {
+            cc.audioEngine.playEffect("res/ball_bar.wav");
+        }
         let x = this.direction.x + momemtum;
         if(Math.abs(x/this.direction.y) > 5.0){
             //chuan hoa |y| = |x|/3
