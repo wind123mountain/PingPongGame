@@ -11,11 +11,11 @@ var SettingsLayer = cc.Layer.extend({
         sp.scale = 2;
         this.addChild(sp, 0, 1);
 
-        var cacheImage = cc.textureCache.addImage("res/menuTitle.png");
-        var title = new cc.Sprite(cacheImage, cc.rect(0, 0, 134, 39));
-        title.x = cc.winSize.width / 2;
-        title.y = cc.winSize.height - 120;
-        this.addChild(title);
+//         var cacheImage = cc.textureCache.addImage("res/menuTitle.png");
+//         var title = new cc.Sprite(cacheImage, cc.rect(0, 0, 134, 39));
+//         title.x = cc.winSize.width / 2;
+//         title.y = cc.winSize.height - 120;
+//         this.addChild(title);
 
 
         cc.MenuItemFont.setFontName("Arial");
