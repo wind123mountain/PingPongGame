@@ -391,10 +391,6 @@ var ScreenPingpong = cc.Layer.extend({
                 if (this._bricks[i][j].isActive) {
                     hasBrick = true;
                     if (this.onHitObject(this._preBallPos, this._currBallPos, this._bricks[i][j])) {
-                        if(MW.SOUND){
-                            cc.audioEngine.playEffect("res/explodeEffect.mp3");
-                        }
-
                         this._bricks[i][j].destroy();
                         this._score += MW.SCORE;
                         this._lbScore.setString(this._user.name + " " + "Score: " + this._score);
