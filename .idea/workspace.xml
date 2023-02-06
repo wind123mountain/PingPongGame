@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="768adfe9-d0e4-4c7a-9d27-91b57af71841" name="Default Changelist" comment="update option, audio">
-      <change afterPath="$PROJECT_DIR$/res/menuTitle.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulator/cache/jsb.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/cache/jsb.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/config/GameConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/config/GameConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/mainmenu/ScreenMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/mainmenu/ScreenMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/pingpong/ScreenPingpong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/pingpong/ScreenPingpong.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/pingpong/SettingsLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/pingpong/SettingsLayer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +57,7 @@
       <workItem from="1672404195817" duration="789000" />
       <workItem from="1673756194435" duration="7283000" />
       <workItem from="1674809546687" duration="2387000" />
-      <workItem from="1675089843488" duration="1719000" />
+      <workItem from="1675089843488" duration="3643000" />
     </task>
     <task id="LOCAL-00001" summary="update option, audio">
       <created>1673776865095</created>
@@ -72,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673776865095</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update level">
+      <created>1675091730900</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675091730900</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,6 +93,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update option, audio" />
-    <option name="LAST_COMMIT_MESSAGE" value="update option, audio" />
+    <MESSAGE value="update level" />
+    <option name="LAST_COMMIT_MESSAGE" value="update level" />
   </component>
 </project>
