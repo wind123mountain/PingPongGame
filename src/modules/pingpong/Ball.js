@@ -10,7 +10,7 @@ var Ball = cc.Sprite.extend({
     isActive: true,
 
     ctor:function (){
-        this._super("res/ball.png");
+        this._super("res/ball2.png");
         this.tag = this.zOrder;
         this.scale = SCALE;
         this.passX = this.getBoundingBox().width/2;

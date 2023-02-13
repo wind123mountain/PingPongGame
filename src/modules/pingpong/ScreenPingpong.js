@@ -49,7 +49,7 @@ var ScreenPingpong = cc.Layer.extend({
         this.onCountdown();
     },
     init:function (){
-        var sp = new cc.Sprite("res/Capture.PNG");
+        var sp = new cc.Sprite("res/imagePlay.jpg");
         sp.anchorX = 0;
         sp.anchorY = 0;
         sp.scale = 2;
