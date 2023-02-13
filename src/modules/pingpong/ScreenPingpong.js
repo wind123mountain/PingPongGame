@@ -49,11 +49,10 @@ var ScreenPingpong = cc.Layer.extend({
         this.onCountdown();
     },
     init:function (){
-        var sp = new cc.Sprite("res/Capture.PNG");
-        sp.anchorX = 0;
-        sp.anchorY = 0;
-        sp.scale = 2;
-        this.addChild(sp, 0, 1);
+        var board = new cc.Sprite("res/loading.png");
+        board.scale = 2;
+        board.setAnchorPoint(0, 0);
+        this.addChild(board, 0);
 
         winSize = cc.director.getVisibleSize();
         this._bricks = [];//???
@@ -66,6 +65,23 @@ var ScreenPingpong = cc.Layer.extend({
         this._bottomBoungding = 3*this._passBoungding;
         this._rightBounding = winSize.width - this._passBoungding;
         this._topBoungding = winSize.height - this._passBoungding;
+
+        var sp = new cc.Sprite("res/Capture.PNG");
+        sp.anchorX = 0.5;
+        sp.anchorY = 0.5;
+        sp.x = (this._rightBounding - this._leftBounding)/2 + this._leftBounding;
+        sp.y = (this._topBoungding - this._bottomBoungding)/2 + this._bottomBoungding;
+        // sp.x = 100;
+        // sp.y = 100;
+        // sp.scale = 2;
+        sp.width = this._rightBounding - this._leftBounding;
+        sp.height = this._topBoungding - this._bottomBoungding;
+        // sp.width = 1;
+        // sp.height = 1;
+        // sp.scale
+        // sp.setWidth(this._rightBounding - this._leftBounding);
+        // sp.setHeight(this._topBoungding - this._bottomBoungding);
+        this.addChild(sp, 0, 1);
 
         var btnBack = gv.commonButton(100, 50, winSize.width - 70, 52,"Back");
         this.addChild(btnBack);
@@ -133,29 +149,35 @@ var ScreenPingpong = cc.Layer.extend({
     },
 
     generateWall:function (){
-        this._rb = new cc.Sprite("res/verticalBouding.png");
-        this.addChild(this._rb, 0);
-        this._rb.setAnchorPoint(0, 0);
-        this._rb.x = this._rightBounding;
-        this._rb.y = this._bottomBoungding;
-
-        this._tb = new cc.Sprite("res/topBouding.png");
-        this.addChild(this._tb, 0);
-        this._tb.setAnchorPoint(0.5, 0);
-        this._tb.x = winSize.width/2;
-        this._tb.y = this._topBoungding;
-
-        this._lb = new cc.Sprite("res/verticalBouding.png");
-        this.addChild(this._lb, 0);
-        this._lb.setAnchorPoint(1, 0);
-        this._lb.x = this._leftBounding;
-        this._lb.y = this._bottomBoungding;
-
-        this._bb = new cc.Sprite("res/bottomBouding.png");
-        this.addChild(this._bb, 0);
-        this._bb.setAnchorPoint(0.5, 1);
-        this._bb.x = winSize.width/2;
-        this._bb.y = this._bottomBoungding;
+        // this._rb = new cc.Sprite("res/loading.png");
+        // this._rb.scale = 5;
+        // this.addChild(this._rb, 0);
+        // this._rb.setAnchorPoint(0, 0);
+        // this._rb.x = this._rightBounding;
+        // this._rb.y = this._bottomBoungding;
+        //
+        // this._tb = new cc.Sprite("res/loading.png");
+        // this._tb.scale = 5;
+        // this.addChild(this._tb, 0);
+        // this._tb.setAnchorPoint(0.5, 0);
+        // this._tb.x = winSize.width/2;
+        // this._tb.y = this._topBoungding;
+        //
+        // this._lb = new cc.Sprite("res/loading.png");
+        // this._lb.scale = 5;
+        // this.addChild(this._lb, 0);
+        // this._lb.setAnchorPoint(1, 0);
+        // this._lb.x = this._leftBounding;
+        // this._lb.y = this._bottomBoungding;
+        //
+        // this._bb = new cc.Sprite("res/loading.png");
+        // this._bb.scale = 5;
+        // this._bb.rotate = -1;
+        // this._bb.height
+        // this.addChild(this._bb, 0);
+        // this._bb.setAnchorPoint(0.5, 1);
+        // this._bb.x = winSize.width/2;
+        // this._bb.y = this._bottomBoungding;
 
         let passWallX = (this._rightBounding-this._leftBounding)/2;
         let passWallY = (this._topBoungding-this._bottomBoungding)/2;
