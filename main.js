@@ -40,7 +40,6 @@ cc.game.onStart = function () {
         else {
             fr.view(ScreenMenu);
         }
-
     }, this);
 };
 cc.game.run();
