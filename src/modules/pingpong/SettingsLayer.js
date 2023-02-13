@@ -11,11 +11,11 @@ var SettingsLayer = cc.Layer.extend({
         sp.scale = 2;
         this.addChild(sp, 0, 1);
 
-//         var cacheImage = cc.textureCache.addImage("res/menuTitle.png");
-//         var title = new cc.Sprite(cacheImage, cc.rect(0, 0, 134, 39));
-//         title.x = cc.winSize.width / 2;
-//         title.y = cc.winSize.height - 120;
-//         this.addChild(title);
+        var cacheImage = cc.textureCache.addImage("res/menuTitle.png");
+        var title = new cc.Sprite(cacheImage, cc.rect(0, 0, 134, 39));
+        title.x = cc.winSize.width / 2;
+        title.y = cc.winSize.height - 120;
+        this.addChild(title);
 
 
         cc.MenuItemFont.setFontName("Arial");
@@ -28,7 +28,7 @@ var SettingsLayer = cc.Layer.extend({
         cc.MenuItemFont.setFontSize(26);
         var item1 = new cc.MenuItemToggle(
             new cc.MenuItemFont("On"),new cc.MenuItemFont("Off"));
-        item1.setCallback(this.onSoundControl );
+        item1.setCallback(this.onSoundControl);
         item1.setColor(cc.color(MW.FONTCOLOR));
         var state = MW.SOUND ? 0 : 1;
         item1.setSelectedIndex(state);
@@ -46,7 +46,7 @@ var SettingsLayer = cc.Layer.extend({
             new cc.MenuItemFont("Normal"),
             new cc.MenuItemFont("Hard"));
         item2.setColor(cc.color(MW.FONTCOLOR));
-        item2.setCallback( this.onModeControl );
+        item2.setCallback(this.onModeControl);
 
 
         cc.MenuItemFont.setFontName("Arial");
@@ -71,12 +71,19 @@ var SettingsLayer = cc.Layer.extend({
         MW.SOUND = !MW.SOUND;
         var audioEngine = cc.audioEngine;
         if(MW.SOUND){
-            audioEngine.playMusic("res/Vexento_LonelyDance.mp3");
+            audioEngine.playMusic("res/Vexento_LonelyDance.mp3", true);
         }
         else{
             audioEngine.end();
         }
     },
     onModeControl:function(){
+        MW.MODE_INDEX = (MW.MODE_INDEX + 1) % MW.MODE.length;
+        cc.log(MW.MODE_INDEX)
+        cc.log(JSON.stringify(MW.MODE[MW.MODE_INDEX]))
+        MW.SCORE = MW.MODE[MW.MODE_INDEX].SCORE;
+        MW.DROP_ITEM_RATE = MW.MODE[MW.MODE_INDEX].DROP_ITEM_RATE;
+        MW.DELTA_UPDATE_MAP = MW.MODE[MW.MODE_INDEX].DELTA_UPDATE_MAP;
+        cc.log("" + MW.SCORE + " " + MW.DROP_ITEM_RATE + " " + MW.DELTA_UPDATE_MAP)
     }
 });
