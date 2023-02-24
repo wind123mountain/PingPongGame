@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="768adfe9-d0e4-4c7a-9d27-91b57af71841" name="Default Changelist" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulator/cache/jsb.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/simulator/cache/jsb.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/pingpong/ScreenPingpong.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/pingpong/ScreenPingpong.js" afterDir="false" />
     </list>
